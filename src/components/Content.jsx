@@ -2,9 +2,9 @@ import React, { useState,useEffect, useContext } from "react";
 import "../components/content.css";
 import Card from "../components/Card.jsx";
 import { AppContext } from "./AppContext";
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
 
 function createCard(article, index){
   return (
@@ -24,8 +24,8 @@ function Content() {
   const { selectedValue } = useContext(AppContext);
 
   async function search(selectedValue) {
-    const url = `https://newsapi.org/v2/everything?q=${selectedValue}&sortBy=publishedAt&apiKey=${process.env.API_KEY}`;
-    // process.env.ANOTHER_KEY
+    const url = `https://newsapi.org/v2/everything?q=${selectedValue}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`;
+    // process.env.REACT_APP_ANOTHER_KEY
     const response = await fetch(url);
     const data = await response.json();
     setArticles(data.articles);
