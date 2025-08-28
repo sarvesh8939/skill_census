@@ -23,15 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# dependencies
-node_modules/
-
-# env files
-# .env
-# *.env
-
-# build outputs
-dist/
-build/
 
 
