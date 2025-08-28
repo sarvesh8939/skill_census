@@ -1,6 +1,9 @@
 import React, { useState,useContext } from "react";
 import "../components/header.css";
 import { AppContext } from "./AppContext";
+import logo from '../assets/skill_icon-removebg.png'
+import searchIcon from '../assets/search-alt.png'
+import userIcon from '../assets/user.png'
 
 function Header() {
   const { setSelectedValue } = useContext(AppContext);
@@ -8,11 +11,11 @@ function Header() {
   return (
     <div className="header">
       <div className="logo">
-        <img src="src\assets\skill_icon-removebg.png" alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
       <div className="search_box">
         <label for="search">
-          <img src="src\assets\search-alt.png" alt="search" />
+          <img src={searchIcon} alt="search" />
         </label>
         <select
           id="category"
@@ -31,7 +34,7 @@ function Header() {
         </select>
       </div>
       <div className="profile_icon">
-        <img src="src\assets\user.png" alt="" />
+        <img src={userIcon} alt="" />
       </div>
     </div>
   );
