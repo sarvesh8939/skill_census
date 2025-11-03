@@ -1,0 +1,237 @@
+.aboutus-page {
+  font-family: "Poppins", sans-serif;
+  color: #212529;
+  background-color: #ffffff;
+}
+
+/* ===== Banner ===== */
+.about-banner {
+  background-image: url(../assets/office.jpg);
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+  overflow: hidden;
+  height: 40vh;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-overlay {
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  background-image: linear-gradient(to right, #007bff, #6610f2);
+  opacity: 0.5;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.banner-text .slogan {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  color: #b8e1ff;
+}
+
+.banner-text{
+  position: absolute;
+  text-align: center;
+  color: #fff;
+}
+
+
+/* ===== section 1 ===== */
+.about-section {
+  background-color: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.about-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlight {
+  background-image: linear-gradient(to right, #007bff, #6610f2); 
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent;
+}
+
+.about-img {
+  max-width: 95%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .about-section h2 {
+    font-size: 1.9rem;
+    text-align: center;
+  }
+  .about-section p {
+    text-align: center;
+  }
+}
+
+
+/* ===== our vision Section ===== */
+
+.our-vision-section {
+  background: #0a0a0a;
+  color: white;
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border: 3px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.pillar-card {
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.pillar-card.slide-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+
+/* ===== Our Team Section ===== */
+.mission-section {
+  background: #fafbfc;
+}
+.mission-main .mission-subtitle {
+  color: #202a39;
+  font-size: 0.99rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.mission-main .mission-title {
+  font-size: 2.2rem;
+  color: #1c2735;
+  line-height: 1.15;
+}
+.mission-main .mission-desc {
+  max-width: 610px;
+  margin: 0 auto;
+  color: #464f5a;
+  font-size: 1.15rem;
+}
+
+.mission-people-row {
+  margin-top: 24px;
+}
+
+.mission-people-block {
+  /* background: #f4f6fa; */
+  background: #f2f6fb;
+  border-radius: 16px;
+  box-shadow: 0 1px 12px rgba(37, 56, 80, 0.05);
+}
+
+.people-title {
+  color: #162533;
+  font-size: 1.45rem;
+  line-height: 1.13;
+  margin-bottom: 12px;
+}
+.people-desc {
+  font-size: 1.14rem;
+  color: #445060;
+}
+
+.mission-image-card {
+  background: #f4f6fa;
+  border-radius: 16px;
+  box-shadow: 0 2px 22px rgba(41, 75, 120, 0.13);
+  overflow: hidden;
+  position: relative;
+  max-width: 350px;
+  margin: 0 auto;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mission-people-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  min-height: 200px;
+}
+
+@media (max-width: 991.98px) {
+  .mission-main .mission-title { font-size: 1.25rem; }
+  .mission-image-card {display: none;  }
+}
+@media (max-width: 767.98px) {
+  .mission-people-block { padding: 18px 10px; }
+  .mission-people-block h2{text-align: center;}
+  .mission-people-block p{text-align: center;}
+}
+
+/* ===== Network ===== */
+.network-section {
+  /* background-color: #044454; */
+  background-image: url(../assets/networking.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.network-section h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #fff; /* deep blue */
+  margin-bottom: 1.5rem;
+}
+
+.network-text h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff; /* lighter blue shade */
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.network-text p {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+

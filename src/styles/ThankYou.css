@@ -1,0 +1,72 @@
+.thankyou-page {
+  background: #f5f7f2;
+  min-height: 100vh;
+  position: relative;
+  padding: 0 12px;
+}
+.thankyou-corner.yellow {
+  position: absolute;
+  top: 0; left: 0;
+  width: 60px; height: 60px;
+  background: #ffd600;
+  clip-path: polygon(0 0,100% 0,0 100%);
+  z-index: 0;
+}
+.thankyou-corner.green {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 60px; height: 60px;
+  background: #00c48c;
+  clip-path: polygon(100% 0,100% 100%,0 100%);
+  z-index: 0;
+}
+.thankyou-main {
+  z-index: 2;
+}
+.thankyou-message {
+  color: #636569;
+  font-size: 1.07rem;
+}
+
+.thankyou-cards {
+  margin-top: 32px;
+  z-index: 2;
+}
+
+.thankyou-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(60,68,90,0.08);
+  min-width: 250px;
+  max-width: 265px;
+}
+
+.thankyou-social {
+  font-size: 1.7rem;
+  transition: transform 0.14s, filter 0.14s;
+  filter: grayscale(22%);
+}
+.thankyou-social:hover {
+  transform: translateY(-4px) scale(1.14);
+  filter: none;
+}
+.thankyou-visit-btn {
+  font-weight: 600;
+  font-size: 1.08rem;
+  border-radius: 7px;
+  padding: 10px 28px;
+}
+
+@media (max-width: 800px) {
+  .thankyou-cards {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+/* For smaller screens, tweak margins and icon size */
+@media (max-width: 530px) {
+  .thankyou-main h1 { font-size: 1.5rem; }
+  .thankyou-card { min-width: 85vw; padding: 20px 8px;}
+  .thankyou-social { font-size: 1.3rem; }
+}

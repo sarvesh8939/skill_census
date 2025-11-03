@@ -1,0 +1,561 @@
+/* ---------------- Hero Section ---------------- */
+.home-container {
+  background-color: #ffffff;
+  color: #212529;
+}
+
+.hero-section {
+  padding: 90px 20px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #e9f2ff 0%, #ffffff 100%);
+}
+
+.hero-section span{
+  background-image: linear-gradient(to right, #007bff, #6610f2); /* Example: Blue to Indigo */
+  -webkit-background-clip: text; /* For Safari/Chrome */
+  background-clip: text;
+  color: transparent;
+}
+
+
+
+.hero-section h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #002147;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  /* border-radius: 15px; */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+/* .hero-img:hover {
+  transform: scale(1.03);
+} */
+
+/* Buttons */
+.home-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.home-buttons .btn {
+  min-width: 180px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* ----------------Hero Section Responsive Design ---------------- */ 
+
+@media (max-width: 768px) {
+  .hero-section{
+    padding: 60px 15px;
+    text-align: center;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .section-img {
+    margin-bottom: 25px;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .discover-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+
+/* ---------------- What We Do ---------------- */
+.whatwedo-section {
+  background-color: #f8f9fa;
+  padding: 80px 20px;
+}
+
+.whatwedo-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #002147;
+  margin-bottom: 20px;
+}
+
+.whatwedo-section p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.whatwedo-section h3 {
+  font-size: 1.4rem;
+  color: #002147;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+/* ---------------- Flip Cards ---------------- */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 100%;
+  max-width: 270px; 
+  height: 260px;
+  cursor: pointer;
+  margin: 0 auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Fixed front text contrast */
+.flip-card-front {
+  /* background: linear-gradient(135deg, #002147, #004b8d); */
+  background: linear-gradient(to right, #007bff, #6610f2);
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  flex-direction: column;
+}
+
+.flipcard-img{
+  width: 200px;
+  height: 180px;
+  /* margin-bottom: 15px; */
+  /* border-radius: 50%; */
+  object-fit: cover;
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.2); */
+}
+
+.flip-card-front h3 {
+  color: #ffffff;
+  margin: 0;
+  margin-top: 40%;
+  opacity: 0.7;
+}
+
+/* Back Side */
+.flip-card-back {
+  background-color: #ffffff;
+  color: #333;
+  transform: rotateY(180deg);
+  font-size: 1rem;
+  line-height: 1.6;
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+}
+
+/* ----------------whatwedo Responsive ---------------- */
+@media (max-width: 992px) {
+  .flip-card {
+    height: 240px;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flip-card {
+    height: 230px;
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flip-card {
+    height: 210px;
+    max-width: 220px;
+  }
+}
+
+
+
+
+
+/* ---------------- Why Skill Census ---------------- */
+.why-choose-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-radius: 0.75rem;
+}
+
+.why-choose-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 
+    opacity 0.6s cubic-bezier(0.4,0,0.2,1),
+    transform 0.6s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.why-choose-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+
+
+
+/* ---------------- Career Consultation ---------------- */
+.career-section h2{
+  color: #002147;
+}
+
+.career-section h4{
+  color: #004aad;
+} 
+
+.career-section p{
+  font-size: 1.2rem;
+  color: #333333;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.career-icon{
+  width: 48px;
+  height: 48px;
+  margin-top: 8px;
+}
+
+.feature-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition:
+    opacity 0.5s cubic-bezier(0.4,0,0.2,1),
+    transform 0.5s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 2px 10px rgba(60, 60, 60, 0.07);
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  box-shadow: 0 10px 32px rgba(60,60,60, 0.13), 0 2px 8px rgba(60,60,60,0.08);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(60,60,60,0.13), 0 2px 8px rgba(60,60,60,0.13);
+}
+
+.feature-img-wrapper {
+  box-shadow: 0 4px 40px rgba(80,180,255,0.10);
+  height: auto;
+}
+
+.feature-img-lg {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Responsive stacking */
+@media (min-width: 992px) {
+  .feature-img-wrapper {
+    height: 450px; /* or a value you prefer */
+    max-width: 405px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .feature-img-lg {
+    height: 100%;
+    max-height: 405px; /* adjust as desired */
+  }
+}
+
+
+/* ---------------- The Edutainment Way ---------------- */
+.edutainment-section {
+  /* background-color: #ffffff; */
+  /* background: #bcc4c4; */
+  background: #f2f6fb;
+  color: #000;
+}
+
+.edutainment-container{
+  /* background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  border-radius: 18px;
+}
+
+.edutainment-text h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #002147; /* deep blue */
+  margin-bottom: 1.5rem;
+}
+
+.edutainment-text h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #004b8d; /* lighter blue shade */
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.edutainment-text p {
+  font-size: 1.2rem;
+  color: #333333;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.edu-process-panel {
+  /* background: #eaf3fc; */
+  background: white;
+  border-radius: 14px;
+  padding: 22px 16px 20px 16px;
+  box-shadow: 0 2px 14px rgba(22, 99, 166, 0.08);
+}
+
+.edu-process-step {
+  border-bottom: 1px solid #e3e9f4;
+  padding-bottom: 18px;
+  margin-bottom: 14px;
+  position: relative;
+}
+.edu-process-step:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.edu-step-icon {
+  position: relative;
+  background: lightblue;
+  border-radius: 50%;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 8px rgba(30,80,130,0.03);
+  min-width: 65px;
+  min-height: 65px;
+  right: 40px;
+}
+.edu-step-title {
+  font-size: 1.18rem;
+  color: #114997;
+}
+.edu-step-desc {
+  font-size: 1.03rem;
+  color: #315c7a;
+}
+@media (max-width: 991.98px) {
+  .edu-process-panel { margin: 32px 0 0 0; }
+  .edu-process-step { flex-direction: row; }
+  .edu-step-icon { min-width: 50px; min-height: 50px; }
+}
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .edutainment-text {
+    text-align: center;
+  }
+
+  .edutainment-text h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .edutainment-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .edutainment-text h4 {
+    font-size: 1.1rem;
+  }
+
+  .edutainment-text p {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ---------------- Community Section---------------- */
+.community-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+}
+
+.community-text {
+  padding: 20px 40px;
+}
+
+.community-text h2 {
+  font-size: 2.2rem;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.community-text h4 {
+  color: #004aad;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.community-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.community-image {
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 33, 71, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .community-text {
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  .community-image {
+    max-width: 320px;
+  }
+}
+
+.invest-row {
+  background: #f2f6fb;
+  border-radius: 18px;
+  box-shadow: 0 1px 12px 2px rgba(50,55,90,0.04);
+}
+
+.feature-upbox {
+  opacity: 0;
+  transform: translateY(36px) scale(0.96);
+  transition: 
+    opacity 0.5s 0.08s cubic-bezier(0.4,0,0.2,1),
+    transform 0.5s 0.08s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  background: none;
+  border-radius: 16px;
+  padding: 18px 10px 8px 10px;
+  min-height: 144px;
+}
+.feature-upbox-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1.01);
+}
+.feature-upbox:hover {
+  background: #fff;
+  box-shadow: 0 6px 32px 0 rgba(50,100,200,0.10);
+  transform: translateY(-6px) scale(1.03);
+  transition-delay: 0s !important;
+}
+
+@media (max-width:991.98px) {
+  .feature-upbox {
+    min-height: 120px;
+  }
+}
+
+
+/* ---------------- Final Call to Action Section---------------- */
+.final-call-section {
+  /* background-color: #044454; */
+  background-image: url(../assets/finalcall.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.final-call-text h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #fff; /* deep blue */
+  margin-bottom: 1.5rem;
+}
+
+.final-call-text h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff; /* lighter blue shade */
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.final-call-text p {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
