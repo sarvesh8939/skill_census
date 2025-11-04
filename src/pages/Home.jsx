@@ -180,11 +180,11 @@ function Home() {
                 <div className="flip-card mb-5">
                   <div className="flip-card-inner">
                     <div className="flip-card-front">
-                      <img
+                      {/* <img
                         src={item.icon}
                         alt=""
                         className="flipcard-img position-absolute bottom-50"
-                      />
+                      /> */}
                       <h3 className="">{item.title}</h3>
                     </div>
                     <div className="flip-card-back">
@@ -553,7 +553,7 @@ function Home() {
             {/* LEFT: TEXT SECTION */}
             <Col lg={6} md={12} className="mb-4 mb-lg-0">
               <div className="final-call-text">
-                <h4>Final Call to Action: </h4>
+                {/* <h4>Final Call to Action: </h4> */}
                 <h2>
                   Build the Career You Deserve <br />
                   The Future Learns Here.

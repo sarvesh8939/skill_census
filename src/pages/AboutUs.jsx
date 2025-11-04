@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useInView } from "react-intersection-observer";
 import "../styles/AboutUs.css";
-import bannerImg from "../assets/office.jpg"; // replace with your banner image
+import book from "../assets/back-school.jpg"
 import aboutImg from "../assets/freepik.png";
-import bulb from "../assets/light-bulb.png"
-import technology from "../assets/innovation.png"
-import passion from "../assets/passion.png"
-import peopleImage from "../assets/grp_office.jpg"
+import bulb from "../assets/light-bulb.png";
+import technology from "../assets/innovation.png";
+import passion from "../assets/passion.png";
+import peopleImage from "../assets/grp_office.jpg";
 
 const AboutUs = () => {
   const { ref, inView } = useInView({
@@ -15,23 +15,12 @@ const AboutUs = () => {
     threshold: 0.2,
   });
 
-  const [visibleIndex, setVisibleIndex] = useState(-1);
-  const refs = useRef([]);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            setVisibleIndex((prev) => Math.max(prev, i));
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+  const { ref: containerRef, inView: containerInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
 
-    refs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  // image translate effect
 
   return (
     <div className="aboutus-page">
@@ -53,11 +42,7 @@ const AboutUs = () => {
         <Container>
           <Row className="align-items-center">
             {/* LEFT IMAGE */}
-            <Col
-              lg={6}
-              md={12}
-              className="text-center mb-4 mb-lg-0"
-            >
+            <Col lg={6} md={12} className="text-center mb-4 mb-lg-0">
               <img
                 src={aboutImg}
                 alt="Who We Are"
@@ -92,7 +77,10 @@ const AboutUs = () => {
       </section>
 
       {/* Our Vision Section */}
-      <section className="py-5 text-center our-vision-section text-white">
+      <section
+        ref={containerRef}
+        className="py-5 text-center our-vision-section text-white"
+      >
         <Container>
           <h2 className="fw-bold display-6 mb-3">Our Vision</h2>
           <p className="lead text-light mb-4">
@@ -106,7 +94,6 @@ const AboutUs = () => {
             professionals for jobs; we’re building a global community of
             innovators ready to shape what comes next.
           </p>
-
           <div className="row justify-content-center">
             {[
               {
@@ -128,15 +115,12 @@ const AboutUs = () => {
                 icon: bulb,
               },
             ].map((p, i) => (
-              <div
-                key={i}
-                className="col-lg-2 col-md-4 col-sm-6 mb-4"
-                ref={(el) => (refs.current[i] = el)}
-              >
+              <div key={i} className="col-lg-2 col-md-4 col-sm-6 mb-4">
                 <div
                   className={`pillar-card p-3 rounded-4 h-100 ${
-                    visibleIndex >= i ? "slide-up" : "hidden"
+                    containerInView ? "slide-up" : "hidden"
                   }`}
+                  style={{ transitionDelay: `${0.5 * i}s` }}
                 >
                   <div
                     className="icon-circle mx-auto mb-3"
@@ -166,7 +150,6 @@ const AboutUs = () => {
 
       <section className="mission-section py-5">
         <Container>
-          {/* Mission Top */}
           <div className="mission-main mb-5 text-center">
             <div className="mission-subtitle mb-2 fw-bold">Our Difference</div>
             <h1 className="mission-title fw-bold mb-2">
@@ -182,7 +165,6 @@ const AboutUs = () => {
           <Row className="mission-people-row align-items-center">
             <Col lg={6} md={12} className="mb-4 mb-lg-0">
               <div className="mission-people-block p-4">
-                {/* <div className="mission-subtitle mb-2 fw-bold">OUR PEOPLE</div> */}
                 <h2 className="people-title fw-bold mb-3">
                   Our Parent Company
                 </h2>
