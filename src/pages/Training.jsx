@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useInView } from "react-intersection-observer";
+import { useLocation } from "react-router-dom";
 import "../styles/Training.css";
 import heroImg from "../assets/Gemini-lady.png";
 
+import team from "../assets/fourthflip-full.jpg"
+import train_model from "../assets/talking-audience.jpg"
+import business from "../assets/business-co.jpg"
 import career_goals from "../assets/career-goals.png";
 import upskilling from "../assets/upskilling.png";
 import to_do_list from "../assets/to-do-list.png";
@@ -221,7 +225,18 @@ function Training() {
     triggerOnce: true,
     threshold: 0.2,
   });
-  
+
+  //section-scroller
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [location]);
 
   return (
     <div className="training-page">
@@ -229,6 +244,7 @@ function Training() {
       <section
         className="training-hero-section position-relative d-flex align-items-center"
         style={{ minHeight: "95vh" }}
+        id="training-banner"
       >
         {/* Background image */}
         <div className="training-hero-bg-img "></div>
@@ -271,14 +287,17 @@ function Training() {
       </section>
 
       {/*===== how we train sectionn =====*/}
-      <section className="how-we-train-section">
+      <section className="how-we-train-section" id="how-we-train">
         <Container>
           <Row>
             <h3 className="how-we-train-title mt-5">
-              The Skill Census 7-P Success Pathway
+              The SkillCensus 7-P Success Pathway
             </h3>
           </Row>
           <div className="how-we-train-circle">
+            <h2 className="train-circlr-arrow">
+              Explore 7P's by clicking on it
+            </h2>
             {/* SVG Chart */}
             <svg
               viewBox="0 0 500 500"
@@ -344,7 +363,7 @@ function Training() {
                           210 *
                             Math.sin((((angle + angle2) / 2) * Math.PI) / 180)
                         })`}
-                        onClick={() => setSelected(i)} // <--- handle click here
+                        onClick={() => setSelected(i)}
                       >
                         {sector.labelLine1}
                       </text>
@@ -364,6 +383,18 @@ function Training() {
                 >
                   {selected + 1}.{sectors[selected].labelLine1}
                 </text>
+                <text
+                  x="380"
+                  y="240"
+                  textAnchor="middle"
+                  fontSize="60"
+                  fontWeight="700"
+                  fill="#fff"
+                  rotate="350"
+                  className="arrow"
+                >
+                  →
+                </text>
                 <foreignObject x="125" y="240" width="250" height="120">
                   <div className="circle-desc">
                     {sectors[selected].description}
@@ -376,7 +407,7 @@ function Training() {
       </section>
 
       {/*===== training pathway sectionn =====*/}
-      <section className="training-pathway-section py-5">
+      <section className="training-pathway-section py-5" id="training-pathway">
         <div className="container text-center">
           <p className="section-subtitle">
             Choose your learning journey Your goals, your pace.
@@ -402,7 +433,7 @@ function Training() {
       </section>
 
       {/*===== domain we train===== */}
-      <section className="domains-section">
+      <section className="domains-section" id="domains-we-train">
         <Container>
           <Row>
             <h2>Domains We Train In</h2>
@@ -462,7 +493,7 @@ function Training() {
       </section>
 
       {/*=======govt section====== */}
-      <section className="py-5 govt-section">
+      {/* <section className="py-5 govt-section" id="govt-section">
         <Container>
           <h2 className="mb-5 text-center display-4">
             Government-Funded Professional Tech Upskilling Programme
@@ -504,7 +535,9 @@ function Training() {
                 <div className="card-body cyber"></div>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-4 d-flex">
+            <div
+              className={`col-12 col-md-6 col-lg-4 d-flex`}
+            >
               <div
                 ref={ref}
                 className={`card why-choose-card flex-fill h-100 border-0 shadow-sm${
@@ -625,13 +658,105 @@ function Training() {
             <p className="text-center">Hurry, Limited Seats Available !</p>
           </div>
         </Container>
+      </section> */}
+      <section className="py-5 govt-section" id="govt-section">
+        <Container>
+          <h2 className="mb-5 text-center display-4">
+            Government-Funded Professional Tech Upskilling Programme
+          </h2>
+
+          <div className="row g-4">
+            {[
+              {
+                type: "text",
+                icon: "★",
+                title:
+                  "In a world where technology evolves fast, staying ahead matters.",
+                desc: "Enroll in a fully-funded, nationally recognised upskilling programme designed for employed professionals in the UK.",
+              },
+              { type: "image", className: "cyber" },
+              { type: "image", className: "security" },
+              {
+                type: "text",
+                icon: "★",
+                title: "Programme Highlights",
+                list: [
+                  "100% UK government-funded",
+                  "Industry-recognised certification pathway",
+                  "Live online training by senior industry experts",
+                  "Hands-on labs & real scenarios",
+                ],
+              },
+              {
+                type: "text",
+                icon: "★",
+                title: "Purpose & Benefits",
+                list: [
+                  "Build in-demand tech capabilities",
+                  "Strengthen professional growth & readiness",
+                  "Upskill at no cost to you or employer",
+                ],
+              },
+              { type: "image", className: "devops" },
+            ].map((card, index) => {
+              const { ref, inView } = useInView({
+                triggerOnce: true,
+                threshold: 0.15,
+              });
+
+              return (
+                <div key={index} className="col-12 col-md-6 col-lg-4 d-flex">
+                  <div
+                    ref={ref}
+                    className={`card why-choose-card flex-fill h-100 border-0 shadow-sm ${
+                      inView ? "visible" : "hidden-card"
+                    }`}
+                  >
+                    <div className={`card-body ${card.className || ""}`}>
+                      {card.type === "text" && (
+                        <>
+                          <div className="mb-3" style={{ fontSize: "2rem" }}>
+                            {card.icon}
+                          </div>
+                          <h5 className="card-title fw-bold">{card.title}</h5>
+
+                          {card.desc && <p>{card.desc}</p>}
+
+                          {card.list && (
+                            <ul>
+                              {card.list.map((li, i) => (
+                                <li key={i}>
+                                  <p>{li}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="row mt-4 justify-content-center">
+            <Button variant="primary" className="discover-btn w-50 shadow">
+              <a href="https://forms.gle/zZfypzNbqW5P58Tb7">
+                Apply for the programme now →
+              </a>
+            </Button>
+            <p className="text-center">Hurry, Limited Seats Available!</p>
+          </div>
+        </Container>
       </section>
 
       {/*====corporate tech===== */}
-
-      <section className="corptech-section">
+      <section className="corptech-section" id="corptech">
         <div className="corptech-container">
-          <div className="corptech-image"></div>
+          <div className="corptech-image">
+            <img src={business} alt="img" />
+          </div>
           <div className="corptech-content">
             {/* <h3>Specialist topic areas</h3> */}
             <h1>Corporate Tech & Digital Workforce Training</h1>
@@ -646,7 +771,7 @@ function Training() {
                 </span>
                 <div className="stat-label">Core topic areas covered.</div>
               </div>
-              <div className="stat-divider" />
+              {/* <div className="stat-divider" /> */}
               <div>
                 <span className="stat-num">
                   30<sup>+</sup>
@@ -659,7 +784,9 @@ function Training() {
           </div>
         </div>
         <div className="corptech-container mt-5">
-          <div className="corptech-image"></div>
+          <div className="corptech-image">
+            <img src={team} alt="" />
+          </div>
           <div className="corptech-content ">
             {/* <h3>Specialist topic areas</h3> */}
             <h1>Programmes Designed For Companies</h1>
@@ -670,7 +797,7 @@ function Training() {
             <div className="corptech-stats">
               <ul>
                 <li>Custom tech upskilling tracks (beginner → advanced)</li>
-                <hr/>
+                <hr />
                 <li>Tool-specific & stack-specific training</li>
                 <hr />
                 <li>
@@ -719,9 +846,9 @@ function Training() {
             </div>
 
             {/* Right Section - Image */}
-            <div className="col-lg-6 col-md-12 text-center">
+            <div className="col-lg-6 col-md-12">
               <img
-                src={heroImg}
+                src={train_model}
                 alt="Training Team"
                 className="img-fluid rounded-3 shadow-sm"
               />
@@ -733,7 +860,7 @@ function Training() {
       {/*======call section======= */}
       <section className="call-section">
         <h2>Ready to Start Learning?</h2>
-        <h5>Tell us your goal, we’ll guide you to the right programme.</h5>
+        <h5 className="text-center">Tell us your goal, we’ll guide you to the right programme.</h5>
         <button className="btn-primary btn">
           Explore programmes &amp; options
         </button>

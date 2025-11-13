@@ -22,7 +22,7 @@
   z-index: 1;
 }
 
-.training-hero-bg-gradient {
+.home-hero-bg-gradient {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -41,7 +41,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* To add space from left on wide screens */
   padding-left: 4vw;
   padding-right: 4vw;
 }
@@ -60,7 +59,6 @@
   background: linear-gradient(90deg, #fff 80%, #a1b2ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* fallback for Firefox */
   background-clip: text;
   color: transparent;
 }
@@ -76,7 +74,7 @@
 
 .training-hero-btn-outline {
   background: transparent;
-  border: 2.5px solid #9c6bfa;
+  border: 2.5px solid blue;
   color: #fff;
   font-weight: 600;
   padding: 16px 34px;
@@ -88,9 +86,10 @@
   margin-bottom: 8px;
 }
 .training-hero-btn-outline:hover {
-  border-color: #fff;
-  background: #9c6bfa;
-  color: #282857;
+  /* border-color: #fff; */
+  /* background: #9c6bfa; */
+  background: blue;
+  /* color: #282857; */
 }
 
 .training-hero-scroll-indicator {
@@ -154,7 +153,9 @@
 
 .how-we-train-section {
   background: #223dce;
-  height: 100vh;
+  /* height: 100vh; */
+  height: auto;
+  width: 100%;
 }
 
 .how-we-train-title {
@@ -171,11 +172,24 @@
   margin: 0 auto;
   aspect-ratio: 1 / 1;
   position: relative;
+  border: 1px solid #223dce;
 }
+
+.train-circlr-arrow{
+  /* position: absolute; */
+  color: #ffe9f5;
+  font-size: 1.5rem;
+  text-align: center;
+  left: 93%;
+  top: 26%;
+  /* transform: rotate(352deg); */
+}
+
 .how-we-train-svg {
   width: 100%;
   height: auto;
   display: block;
+  margin-bottom: 50px;
 }
 .circle-desc {
   color: #ffe9f5;
@@ -453,8 +467,16 @@ Button a{
   border-radius: 0.75rem;
 }
 
+.security{
+  background-image: url(../assets/security.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.75rem
+}
+
 .cyber{
-  background-image: url(../assets/cyber.jpg);
+  background-image: url(../assets/woman.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -462,7 +484,7 @@ Button a{
 }
 
 .devops{
-   background-image: url(../assets/do.jpg);
+   background-image: url(../assets/secondflip-full.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -482,6 +504,18 @@ Button a{
   transform: translateY(-8px) scale(1.04);
   box-shadow: 0 12px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
   z-index: 2;
+}
+
+@media (max-width:768px){
+  .cyber{
+    display: none;
+  }
+  .devops{
+    display: none;
+  }
+  .security{
+    display: none;
+  }
 }
 
 /*====corporate tech section======*/
@@ -506,10 +540,13 @@ Button a{
 
 .corptech-image {
   flex: 0 0 48%;
-  background-image: url(../assets/team.png);
-  background-size: cover;
-  background-position: center;
   min-height: 350px;
+  max-height: 500px;
+}
+
+.corptech-image img{
+  height: 100%;
+  width: 100%;
 }
 
 .corptech-content {
@@ -602,12 +639,12 @@ Button a{
   font-size: 1.1rem;
 }
 
-.stat-divider {
+/* .stat-divider {
   width: 2px;
   height: 50px;
   background: #d3e0fa;
   border-radius: 4px;
-}
+} */
 
 @media (max-width: 1080px) {
   .corptech-container { flex-direction: column; }
@@ -739,3 +776,17 @@ Button a{
   }
 }
 
+@media (max-width: 520px) {
+  .training-item{
+    font-size: 0.8rem;
+  }
+  .training-item {
+    justify-content: left;
+  }
+
+  .training-title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+}

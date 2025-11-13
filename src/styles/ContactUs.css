@@ -16,10 +16,13 @@
 }
 
 .contact-banner-overlay {
-  position: absolute; 
+  position: absolute;
   background-image: linear-gradient(to right, #007bff, #6610f2);
   opacity: 0.5;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,7 +51,20 @@
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .contact-banner-text h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
 
+  .contact-banner-text .slogan {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-weight: 400;
+    color: #fff;
+    max-width: 80%;
+  }
+}
 
 /* ===== Contact Section ===== */
 .contact-section {
@@ -70,7 +86,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.contact-card h5{
+.contact-card h5 {
   color: white;
 }
 
@@ -86,7 +102,8 @@
   transform: translateY(-3px) scale(1.18);
 }
 
-.contact-control:focus, .contact-select:focus {
+.contact-control:focus,
+.contact-select:focus {
   border-color: #007bff;
   box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.25);
 }

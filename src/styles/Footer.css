@@ -18,6 +18,34 @@
   margin-bottom: 10px;
 }
 
+.trinitysoft-logo{
+  width: 250px;
+  height: auto;
+  margin: 10px 0px 10px 0px;
+}
+
+.trinity-row{
+  border-top: 1px black solid;
+  /* border-bottom: 1px black solid; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.trinity-row h2{
+  font-size: 1rem;
+  color: black;
+  margin: 10px 0px 10px 0px;
+}
+
+.scroll-top-btn{
+  border: none;
+  background: transparent;
+}
+
+.scroll-top-btn:hover h2{
+ text-decoration: underline;
+}
+
 .footer-note{
   color: black;
 }
@@ -25,7 +53,7 @@
 .footer-main a:hover,
 .footer-main a:focus {
   color: black !important;
-  text-decoration: none;
+  /* text-decoration: none; */
   transition: color 0.18s;
 }
 
@@ -35,10 +63,12 @@
   text-decoration: none;
   transition: color 0.17s;
 }
+
 .footer-link:hover,.footer-link:focus {
   color: #27a3ff !important;
   text-decoration: underline;
 }
+
 .footer-list li {
   margin-bottom: 0.5rem;
 }
@@ -56,10 +86,6 @@
   transition: color 0.18s, transform 0.18s;
 }
 
-.footer-social .footer-icon-link:hover {
-  color: #fff;
-  transform: translateY(-3px) scale(1.18);
-}
 
 .footer-note {
   font-size: 0.97em;
@@ -72,5 +98,8 @@
   }
   .footer-social {
     margin-top: 8px;
+  }
+  .trinity-row{
+    margin-top: 20px;
   }
 }

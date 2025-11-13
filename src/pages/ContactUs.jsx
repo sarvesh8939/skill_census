@@ -11,7 +11,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import "../styles/ContactUs.css";
-import bannerImg from "../assets/office.jpg"; 
+import bannerImg from "../assets/office.jpg";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -29,31 +29,28 @@ const ContactUs = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serviceID = "service_ewni9b9"; // EmailJS service ID
-    const adminTemplate = "template_cjgsclp"; // Admin template ID
-    const userTemplate = "template_noueiwa"; // User template ID
-    const publicKey = "6obqnvppSvFruMEN2"; // Your EmailJS public key
+    try {
+      const response = await fetch("http://localhost:5000/api/mail/send-mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Send email to admin
-    emailjs
-      .send(serviceID, adminTemplate, formData, publicKey)
-      .then(() => {
-        // console.log("Admin notified successfully!");
-        alert("Your message has been sent successfully!");
-      })
-      .catch((err) => console.error("Admin email failed:", err));
-
-    // Send confirmation email to user
-    emailjs
-      .send(serviceID, userTemplate, formData, publicKey)
-      .then(() => {
-        console.log("User confirmation sent!");
-        navigate("/thankyou"); // Redirect on success
-      })
-      .catch((err) => console.error("User email failed:", err));
+      if (response.ok) {
+        // alert("Your message has been sent successfully!");
+        navigate("/thankyou");
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -63,7 +60,7 @@ const ContactUs = () => {
         <div className="contact-banner-text">
           <h1>Contact Us</h1>
           <p className="slogan">
-            At Skill Census, we value meaningful connections, whether you’re
+            At SkillCensus, we value meaningful connections, whether you’re
             looking to collaborate, train your team, or start your learning
             journey. Tell us a bit about yourself, and we’ll make sure your
             enquiry reaches the right team.
@@ -92,7 +89,7 @@ const ContactUs = () => {
                 Trinitysoft Solutions Ltd, UK
               </p>
               <p className="text-light small">
-                Skill Census, India — Digital Learning Division
+                SkillCensus, India — Digital Learning Division
               </p>
               <h5 className=" fw-semibold mt-4">Follow Us</h5>
               <div className="contact-social">

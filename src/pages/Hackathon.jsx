@@ -1,8 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useInView } from "react-intersection-observer";
+import { useLocation } from "react-router-dom";
+
 import "../styles/Hackathon.css";
 import heroImg from "../assets/Gemini-lady.png";
+import resultImg from "../assets/thirdflip-full.jpg"
+import team from "../assets/team.png"
+import formats from "../assets/formats.jpg"
 
 import checked from "../assets/checked.png";
 import puzzle from "../assets/puzzle.png";
@@ -96,11 +101,24 @@ function Hackathon() {
     threshold: 0.2,
   });
 
+    //section-scroller
+    const location = useLocation();
+  
+    useEffect(() => {
+      if (location.hash) {
+        const element = document.getElementById(location.hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    }, [location]);
+
   return (
     <div className="hackathon-page">
       {/*===== hero sectionn =====*/}
       <section
         className="hackathon-hero-section position-relative d-flex align-items-center"
+        id="hackathon-banner"
         // style={{ minHeight: "95vh" }}
       >
         <div className="hackathon-hero-bg-img "></div>
@@ -142,7 +160,7 @@ function Hackathon() {
       </section>
 
       {/*=======future work section=========*/}
-      <section className="fw-section">
+      <section className="fw-section" id="fw-section">
         <div className="fw-container">
           <div className="fw-left">
             <h2>
@@ -193,7 +211,7 @@ function Hackathon() {
         </div>
       </section>
 
-      <section className="different-section ">
+      <section className="different-section " id="our-model">
         {/* <div className="different text-center">
           <div className="different-overlay"></div>
           <div className="different-content">
@@ -202,7 +220,9 @@ function Hackathon() {
           </div>
         </div> */}
         <div className="corptech-container ">
-          <div className="corptech-image"></div>
+          <div className="corptech-image">
+            <img src={team} alt="" srcset="" />
+          </div>
           <div className="corptech-content ">
             {/* <h3>Specialist topic areas</h3> */}
             <h1>Modular formats</h1>
@@ -225,7 +245,7 @@ function Hackathon() {
         </div>
       </section>
 
-      <section className="training-section py-5">
+      <section className="training-section py-5" id="categories">
         <div className="container-fluid px-md-5">
           <div className="row align-items-center">
             {/* Left Section */}
@@ -261,7 +281,7 @@ function Hackathon() {
             {/* Right Section - Image */}
             <div className="col-lg-6 col-md-12 text-center">
               <img
-                src={heroImg}
+                src={formats}
                 alt="Training Team"
                 className="img-fluid rounded-3 shadow-sm"
               />
@@ -271,7 +291,7 @@ function Hackathon() {
       </section>
 
       {/*===== run for sectionn =====*/}
-      <section className="runfor-section py-5">
+      <section className="runfor-section py-5" id="runfor">
         <div className="container text-center">
           {/* <p className="runfor-section-subtitle">
             Choose your learning journey Your goals, your pace.
@@ -305,7 +325,7 @@ function Hackathon() {
       </section>
 
       {/*=========our model============= */}
-      <div className="model">
+      <div className="model" id="different">
         <section className="our-model">
           <div className="model-title">
             <h2>What Makes Us Different</h2>
@@ -335,7 +355,7 @@ function Hackathon() {
               onMouseEnter={() => setHovered(2)}
               onMouseLeave={() => setHovered(null)}
             >
-              <h3>Skill Census Hackathons</h3>
+              <h3>SkillCensus Hackathons</h3>
               <ul>
                 <li>Multi-domain challenges</li>
                 <li>Test thinking, execution & teamwork</li>
@@ -346,7 +366,7 @@ function Hackathon() {
             </div>
           </div>
         </section>
-        <section className="our-model">
+        <section className="our-model" id="values">
           <div className="model-title">
             <h2>Value We Deliver</h2>
             {/* <h4>Learn → Build → Pitch → Get Opportunities</h4> */}
@@ -386,9 +406,11 @@ function Hackathon() {
         </section>
       </div>
 
-      <section className="corptech-section">
+      <section className="corptech-section" id="results">
         <div className="corptech-container">
-          <div className="corptech-image"></div>
+          <div className="corptech-image">
+            <img src={resultImg} alt="" srcset="" />
+          </div>
           <div className="corptech-content">
             <h1>Impact Snapshot</h1>
             <p>Results That Matter</p>
@@ -401,7 +423,7 @@ function Hackathon() {
                   participants report skill growth
                 </div>
               </div>
-              <div className="stat-divider" />
+             
               <div className="">
                 <span className="stat-num">
                   70<sup>%</sup>
@@ -418,7 +440,7 @@ function Hackathon() {
                   students gain industry exposure
                 </div>
               </div>
-              <div className="stat-divider" />
+              
               <div>
                 <span className="stat-num">
                   100<sup>%</sup>
@@ -436,8 +458,8 @@ function Hackathon() {
       <section className="hackathon-call-section">
         <div className="overlay"></div>
         <div className="hackathon-call-content">
-          <h2>Bring Innovation & Skill-Based Hiring to Your Organisation</h2>
-          <h6>Host a Hackathon • Partner for Hiring • Join as a Participant</h6>
+          <h2 className="text-center">Bring Innovation & Skill-Based Hiring to Your Organisation</h2>
+          <h6 className="text-center">Host a Hackathon • Partner for Hiring • Join as a Participant</h6>
           <div className="button gap-3 d-flex">
             <Button className="call-btn">Host a Hackathon</Button>
             <Button className="call-btn">Partner with Us</Button>

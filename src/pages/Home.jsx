@@ -1,15 +1,16 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
+import { HashLink } from "react-router-hash-link";
 import "../styles/Home.css";
 import studentImage from "../assets/student.jpg";
 import learn from "../assets/learn.jpg";
 import communityImage from "../assets/community.jpg";
 
-import education from "../assets/education.png"
-import office from "../assets/office.png"
-import hackathon from "../assets/hackathon.png"
-import path from "../assets/path.png"
+import firstflip from "../assets/firstflip-full.jpg"
+import fourthflip from "../assets/fourthflip-full.jpg"
+import thirdflip from "../assets/thirdflip-full.jpg"
+import secondflip from "../assets/secondflip-full.jpg"
 
 import discover from "../assets/discovery.png"
 import list from "../assets/list.png"
@@ -83,7 +84,7 @@ function Home() {
   return (
     <div className="home-container">
       {/* Hero Section */}
-      <section className="hero-section">
+      {/* <section className="hero-section">
         <Container>
           <Row className="align-items-center">
             <Col md={12} lg={6}>
@@ -121,6 +122,50 @@ function Home() {
             </Col>
           </Row>
         </Container>
+      </section> */}
+      <section
+        className="training-hero-section position-relative d-flex align-items-center"
+        style={{ minHeight: "95vh" }}
+        id="training-banner"
+      >
+        {/* Background image */}
+        <div className="training-hero-bg-img "></div>
+        <div className="home-hero-bg-gradient"></div>
+        <Container
+          fluid="md"
+          className="training-hero-content text-white position-relative z-2 py-5"
+        >
+          <Row>
+            <Col lg={8} md={10}>
+              <h1 className="training-hero-title mb-2">
+                Empowering Learners for the
+                <br />
+                <span className="training-hero-title-bold">
+                  World of Tomorrow
+                </span>
+              </h1>
+              <p className="training-hero-desc mb-4">
+                Skill Census stands apart as a new-generation education platform
+                built for professionals and graduates who want more than just
+                courses, they want transformation.
+              </p>
+              {/* <div className="d-flex flex-wrap gap-3 mb-5">
+                <button className="training-hero-btn-outline">
+                  Get Your Learning Plan →
+                </button>
+                <button className="training-hero-btn-outline">
+                  Explore Programmes →
+                </button>
+              </div> */}
+              <div className="training-hero-scroll-indicator"></div>
+            </Col>
+          </Row>
+        </Container>
+        <img
+          src={learn}
+          alt="Training Hero"
+          className="training-hero-actual-img"
+        />
       </section>
 
       {/* What We Do Section */}
@@ -145,28 +190,32 @@ function Home() {
           <Row className="mt-5 g-4 justify-content-center text-center">
             {[
               {
-                icon: education,
-                title: "Professional Training & Upskilling",
-                backText:
-                  "Structured live online programmes in high-demand technologies, led by experienced industry mentors.",
-              },
-              {
-                icon: office,
-                title: "Corporate Learning Solutions",
-                backText:
-                  "Tailored training for organisations that need to equip their teams with new-age digital capabilities.",
-              },
-              {
-                icon: hackathon,
-                title: "Hackathons & Industry Collaborations",
-                backText:
-                  "Real-world, project-driven events that connect learning to innovation.",
-              },
-              {
-                icon: path,
+                icon: firstflip,
                 title: "Career Guidance Consultations",
                 backText:
                   "Personalised sessions with global experts to help define your career direction and growth strategy.",
+                path: "/#career-consultation",
+              },
+              {
+                icon: secondflip,
+                title: "Professional Training & Upskilling",
+                backText:
+                  "Structured live online programmes in high-demand technologies, led by experienced industry mentors.",
+                path: "/training#domains-we-train",
+              },
+              {
+                icon: thirdflip,
+                title: "Corporate Learning Solutions",
+                backText:
+                  "Tailored training for organisations that need to equip their teams with new-age digital capabilities.",
+                path: "/training#corptech",
+              },
+              {
+                icon: fourthflip,
+                title: "Hackathons & Industry Collaborations",
+                backText:
+                  "Real-world, project-driven events that connect learning to innovation.",
+                path: "/hackathon#hackathon-banner",
               },
             ].map((item, index) => (
               <Col
@@ -183,12 +232,18 @@ function Home() {
                       <img
                         src={item.icon}
                         alt=""
-                        className="flipcard-img position-absolute bottom-50"
+                        className="flipcard-img position-absolute "
                       />
+                      <div className="flip-overlay"></div>
                       <h3 className="">{item.title}</h3>
                     </div>
                     <div className="flip-card-back">
                       <p>{item.backText}</p>
+                      <p className="more">
+                        <HashLink smooth to={item.path}>
+                          <strong>Know More</strong>
+                        </HashLink>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -202,7 +257,7 @@ function Home() {
       <section className="py-5">
         <Container>
           <h2 className="mb-5 text-center display-4">
-            WHY CHOOSE SKILL CENSUS?
+            WHY CHOOSE SKILLCENSUS?
           </h2>
           <div className="row g-4">
             {[
@@ -269,10 +324,10 @@ function Home() {
               );
             })}
           </div>
-          <div className="row mt-4 dflex justify-content-center">
+          <div className="mt-4 text-center">
             <Button
               variant="primary"
-              className="discover-btn w-25 shadow"
+              className="discover-btn  shadow"
               onClick={() => navigate("/aboutus")}
             >
               Discover More About Us
@@ -282,7 +337,7 @@ function Home() {
       </section>
 
       {/* Career Consultation Section */}
-      <section className="py-5">
+      <section className="py-5" id="career-consultation">
         <Container className="career-section">
           <h2 className="text-center fw-bold mb-3 display-5">
             Career Consultation
@@ -294,7 +349,7 @@ function Home() {
             className="text-center mx-auto mb-4 lead "
             // style={{ maxWidth: 800 }}
           >
-            At Skill Census, we understand that every career journey is
+            At SkillCensus, we understand that every career journey is
             different. Whether you’re a recent graduate exploring your first
             opportunity or an experienced professional planning a transition,
             our career guidance consultations connect you with mentors <br />{" "}
@@ -401,13 +456,10 @@ function Home() {
             </div>
           </div>
 
-          <div className="d-flex justify-content-center mt-4">
-            {/* <button className="btn btn-dark btn-lg px-4 mt-2 shadow">
-              Book a Career Consultation
-            </button> */}
+          <div className="mt-4 text-center">
             <Button
               variant="primary"
-              className="btn btn-dark btn-lg px-4 mt-2 shadow"
+              className="discover-btn  shadow"
               onClick={() => navigate("/contactus")}
             >
               Book a Career Consultation
@@ -427,7 +479,7 @@ function Home() {
 
                 <h4>How We Make Learning Stick</h4>
                 <p>
-                  At Skill Census, Edutainment isn’t just a concept, it’s our
+                  At SkillCensus, Edutainment isn’t just a concept, it’s our
                   entire learning philosophy. We’ve reimagined how professionals
                   absorb, retain, and apply knowledge by turning learning into
                   an active, emotional, and experiential process.
@@ -506,9 +558,9 @@ function Home() {
                 <h2>Community of Mentors & Learners</h2>
                 <h4>Grow Together, Globally</h4>
                 <p>
-                  Skill Census is more than a learning platform, it’s a
-                  community that connects people who share the same goal: to
-                  grow, learn, and lead. Our ecosystem brings together mentors,
+                  SkillCensus is more than a learning platform, it’s a community
+                  that connects people who share the same goal: to grow, learn,
+                  and lead. Our ecosystem brings together mentors,
                   professionals, students, and innovators from around the world
                   to exchange knowledge, share insights, and collaborate on new
                   ideas.
@@ -537,7 +589,7 @@ function Home() {
               <FeatureBox {...features[0]} />
             </Col>
             <Col lg={4} md={12} className="d-flex justify-content-center">
-              <FeatureBox {...features[1]} /> 
+              <FeatureBox {...features[1]} />
             </Col>
             <Col lg={4} md={12} className="d-flex justify-content-center">
               <FeatureBox {...features[2]} />
@@ -553,13 +605,13 @@ function Home() {
             {/* LEFT: TEXT SECTION */}
             <Col lg={6} md={12} className="mb-4 mb-lg-0">
               <div className="final-call-text">
-                <h4>Final Call to Action: </h4>
+                {/* <h4>Final Call to Action: </h4> */}
                 <h2>
                   Build the Career You Deserve <br />
                   The Future Learns Here.
                 </h2>
                 <p>
-                  At Skill Census, we don’t just prepare you for today we equip
+                  At SkillCensus, we don’t just prepare you for today we equip
                   you for what comes next. Learn with industry experts, grow
                   through experience, and become part of a global community that
                   believes in learning without limits.

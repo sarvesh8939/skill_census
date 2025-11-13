@@ -9,30 +9,46 @@ import {
 } from "react-icons/fa";
 import "../styles/Footer.css";
 import logo from "../assets/Logo_Skill_Census.png";
+import trinity from "../assets/Trinitysoft-Logo.png";
 
 function Footer() {
+  const date = new Date;
+  const year = date.getFullYear();
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
-    <footer className="footer-main py-5 text-light ">
+    <footer className="footer-main py-5">
       <Container>
         <Row>
           <Col md={4} className="mb-4 mb-md-0">
-            <div className="fw-bold fs-3 mb-2"  >
-              <img src={logo} alt="Skill Census Logo"  className="footer-logo"/>
+            <div className="fw-bold fs-3 mb-2">
+              <img
+                src={trinity}
+                alt="Skill Census Logo"
+                className="footer-logo"
+              />
             </div>
             {/* <div className="mb-2">
-              <span className="fw-bold">The Future Learns Here.</span>
+              <span className="fw-bold">Our Parent Company</span>
             </div> */}
             <div className="footer-note ">
-              A division of Trinitysoft solutions ltd{" "}
+              Our Parent Company{" "}
               <a
                 href="https://www.trinitysoft.co.uk"
                 className="footer-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                (www.trinitysoft.co.uk)
+                www.trinitysoft.co.uk
               </a>
             </div>
+            {/* <div className="fw-bold fs-3 mb-2">
+              <img src={trinity} alt="" className="trinitysoft-logo" />
+            </div> */}
           </Col>
 
           <Col md={2} xs={6} className="mb-4 mb-md-0">
@@ -125,6 +141,15 @@ function Footer() {
             </div>
           </Col>
         </Row>
+        <div className="trinity-row">
+          <h2>©{year} SkillCensus</h2>
+          <button className="scroll-top-btn" onClick={scrollToTop}>
+            <h2>Back To Top</h2>
+          </button>
+          {/* <div>
+            <img src={trinity} alt="" className="trinitysoft-logo" />
+          </div> */}
+        </div>
       </Container>
     </footer>
   );

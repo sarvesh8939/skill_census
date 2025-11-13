@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useInView } from "react-intersection-observer";
+import { useLocation } from "react-router-dom";
+
 import "../styles/AboutUs.css";
-import bannerImg from "../assets/office.jpg"; // replace with your banner image
+import bannerImg from "../assets/office.jpg";
 import aboutImg from "../assets/freepik.png";
-import bulb from "../assets/light-bulb.png"
-import technology from "../assets/innovation.png"
-import passion from "../assets/passion.png"
-import peopleImage from "../assets/grp_office.jpg"
+import bulb from "../assets/light-bulb.png";
+import technology from "../assets/innovation.png";
+import passion from "../assets/passion.png";
+import peopleImage from "../assets/grp_office.jpg";
 
 const AboutUs = () => {
   const { ref, inView } = useInView({
@@ -20,9 +22,10 @@ const AboutUs = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleIndex((prev) => Math.max(prev, i));
+            const index = Number(entry.target.dataset.index);
+            setVisibleIndex((prev) => Math.max(prev, index));
           }
         });
       },
@@ -33,15 +36,31 @@ const AboutUs = () => {
     return () => observer.disconnect();
   }, []);
 
+
+  //section-scroller
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="aboutus-page">
       {/* Banner */}
-      <section className="about-banner text-center position-relative">
+      <section
+        className="about-banner text-center position-relative"
+        id="about-banner"
+      >
         <div className="banner-overlay"></div>
         <div className="banner-text">
           <h1>About Us</h1>
           <p className="slogan">
-            Skill Census, Where Learning Evolves, and Learners Lead.
+            SkillCensus, Where Learning Evolves, and Learners Lead.
           </p>
         </div>
       </section>
@@ -53,11 +72,7 @@ const AboutUs = () => {
         <Container>
           <Row className="align-items-center">
             {/* LEFT IMAGE */}
-            <Col
-              lg={6}
-              md={12}
-              className="text-center mb-4 mb-lg-0"
-            >
+            <Col lg={6} md={12} className="text-center mb-4 mb-lg-0">
               <img
                 src={aboutImg}
                 alt="Who We Are"
@@ -68,20 +83,20 @@ const AboutUs = () => {
             {/* RIGHT TEXT */}
             <Col lg={6} md={12}>
               <h2 className="fw-bold display-6 text-dark">
-                <span className="highlight">Skill Census</span> is more than a
+                <span className="highlight">SkillCensus</span> is more than a
                 learning platform — it’s a movement to{" "}
                 <span className="highlight">evolve education</span> for the
                 future.
               </h2>
               <p className="mt-3 fs-5 text-muted">
-                At Skill Census, we believe education should evolve as fast as
+                At SkillCensus, we believe education should evolve as fast as
                 the world does. We are the education and training wing of
                 Trinitysoft Solutions Ltd, a UK-based IT consultancy with 15+
                 years of expertise in AI, software innovation, and enterprise
                 solutions.
               </p>
               <p className="fs-5 text-muted">
-                Skill Census was born from a simple idea — learning should be as
+                SkillCensus was born from a simple idea — learning should be as
                 dynamic, exciting, and impactful as the careers it leads to. Our
                 learners don’t just complete courses; they build skills, create
                 solutions, and grow careers that matter.
@@ -92,7 +107,10 @@ const AboutUs = () => {
       </section>
 
       {/* Our Vision Section */}
-      <section className="py-5 text-center our-vision-section text-white">
+      <section
+        className="py-5 text-center our-vision-section text-white"
+        id="vision"
+      >
         <Container>
           <h2 className="fw-bold display-6 mb-3">Our Vision</h2>
           <p className="lead text-light mb-4">
@@ -132,6 +150,7 @@ const AboutUs = () => {
                 key={i}
                 className="col-lg-2 col-md-4 col-sm-6 mb-4"
                 ref={(el) => (refs.current[i] = el)}
+                data-index={i}
               >
                 <div
                   className={`pillar-card p-3 rounded-4 h-100 ${
@@ -164,7 +183,7 @@ const AboutUs = () => {
         </Container>
       </section>
 
-      <section className="mission-section py-5">
+      <section className="mission-section py-5" id="difference">
         <Container>
           {/* Mission Top */}
           <div className="mission-main mb-5 text-center">
@@ -173,8 +192,8 @@ const AboutUs = () => {
               Built for the Future of Learning
             </h1>
             <p className="mission-desc">
-              The world doesn’t stand still, and neither do we. What makes Skill
-              Census different is our ability to connect learning with
+              The world doesn’t stand still, and neither do we. What makes
+              SkillCensus different is our ability to connect learning with
               real-world results. We’re not a course provider; we’re a career
               accelerator.
             </p>
@@ -187,7 +206,7 @@ const AboutUs = () => {
                   Our Parent Company
                 </h2>
                 <p className="people-desc ">
-                  Skill Census is part of the Trinitysoft Solutions family, a
+                  SkillCensus is part of the Trinitysoft Solutions family, a
                   forward-thinking UK-based technology company leading in
                   digital transformation, IT services, AI, product innovation,
                   and digital strategy. Backed by Trinitysoft’s technology
@@ -215,7 +234,7 @@ const AboutUs = () => {
         </Container>
       </section>
 
-      <section className="network-section py-5">
+      <section className="network-section py-5" id="network">
         <Container>
           <Row className="align-items-center">
             {/* LEFT: TEXT SECTION */}
@@ -224,7 +243,7 @@ const AboutUs = () => {
                 <h2>Our Global Network</h2>
                 <p>
                   We’re proud to be part of a growing international community of
-                  learners, mentors, and innovators. Skill Census partners with
+                  learners, mentors, and innovators. SkillCensus partners with
                   experts from across industries and continents, creating a
                   powerful knowledge exchange that keeps learning dynamic and
                   globally relevant. Here, education is not confined to a

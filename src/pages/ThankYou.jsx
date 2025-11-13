@@ -27,7 +27,7 @@ const ThankYou = () => {
             🎉 We’ve Got Your Message, Our Team Will Be in Touch Soon! We’ve
             received your enquiry and our team will get back to you within 1–2
             business days. Meanwhile, you can continue exploring our platform
-            and discover how Skill Census helps learners and organisations grow
+            and discover how SkillCensus helps learners and organisations grow
             together.
           </p>
         </div>
