@@ -5,9 +5,10 @@ import { useLocation } from "react-router-dom";
 import "../styles/Training.css";
 import heroImg from "../assets/Gemini-lady.png";
 
-import team from "../assets/fourthflip-full.jpg"
+import team from "../assets/fourthflip-full.jpg";
 import train_model from "../assets/talking-audience.jpg"
 import business from "../assets/business-co.jpg"
+
 import career_goals from "../assets/career-goals.png";
 import upskilling from "../assets/upskilling.png";
 import to_do_list from "../assets/to-do-list.png";

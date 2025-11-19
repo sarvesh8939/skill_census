@@ -8,9 +8,9 @@ import learn from "../assets/learn.jpg";
 import communityImage from "../assets/community.jpg";
 
 import firstflip from "../assets/firstflip-full.jpg"
-import fourthflip from "../assets/fourthflip-full.jpg"
-import thirdflip from "../assets/thirdflip-full.jpg"
-import secondflip from "../assets/secondflip-full.jpg"
+import fourthflip from "../assets/fourthflip-full.jpg";
+import thirdflip from "../assets/thirdflip-full.jpg";
+import secondflip from "../assets/secondflip-full.jpg";
 
 import discover from "../assets/discovery.png"
 import list from "../assets/list.png"
@@ -84,45 +84,6 @@ function Home() {
   return (
     <div className="home-container">
       {/* Hero Section */}
-      {/* <section className="hero-section">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={12} lg={6}>
-              <h1>
-                <span className="highlight">Empowering Learners</span> for the
-                World of Tomorrow
-              </h1>
-              <p>
-                Skill Census stands apart as a new-generation education platform
-                built for professionals and graduates who want more than just
-                courses, they want transformation. Our training is shaped by
-                real industry needs, guided by experts with decades of global
-                experience, and designed for the skills that matter today and
-                will lead tomorrow.
-              </p>
-              <div className="mt-4 home-buttons">
-                <Button
-                  className="btn"
-                  variant="primary"
-                  onClick={() => navigate("/training")}
-                >
-                  Explore Training
-                </Button>
-                <Button
-                  variant="dark"
-                  className="btn"
-                  onClick={() => navigate("/hackathon")}
-                >
-                  Learn Through Experience
-                </Button>
-              </div>
-            </Col>
-            <Col md={12} lg={6} className="text-center mt-3">
-              <img src={studentImage} alt="Student" className="hero-img" />
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
       <section
         className="training-hero-section position-relative d-flex align-items-center"
         style={{ minHeight: "95vh" }}
@@ -233,6 +194,7 @@ function Home() {
                         src={item.icon}
                         alt=""
                         className="flipcard-img position-absolute "
+                        loading="lazy"
                       />
                       <div className="flip-overlay"></div>
                       <h3 className="">{item.title}</h3>
